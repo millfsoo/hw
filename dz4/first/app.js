@@ -1,9 +1,13 @@
-function reverseWord(str) {
-  var splitArray = str.split("");
-  var reverseArray = splitArray.reverse();
-  var reverseString = reverseArray.join("");
-  return reverseString;
+function incrementCounter(button) {
+  const counterElement = button.previousElementSibling;
+  const counterValue = parseInt(counterElement.value);
+  counterElement.value = counterValue + 1;
 }
-var word = "Kamila";
-var reverseString = reverseWord(word);
-console.log(reverseString);
+
+function decrementCounter(button) {
+  const counterElement = button.previousElementSibling.previousElementSibling;
+  const counterValue = parseInt(counterElement.value);
+  if (counterValue > 0) {
+    counterElement.value = counterValue - 1;
+  }
+}
