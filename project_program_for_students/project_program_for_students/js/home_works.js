@@ -18,17 +18,58 @@ gmailButton.onclick = () => {
 
 //MOVE BLOCK
 
-function moveChildBlock(targetPosition, currentPosition) {
-  var smallBlock = document.querySelector(".child_block");
+const childBlock = document.querySelector(".child_block");
 
-  if (currentPosition < targetPosition) {
-    currentPosition++;
+let positionX = 0;
+let positionY = 0;
 
-    smallBlock.style.left = currentPosition + "px";
+const move = () => {
+  if (positionX < 448 && positionY === 0) {
+    positionX++;
+    childBlock.style.left = `${positionX}px`;
+  } else if (positionX === 448 && positionY < 448) {
+    positionY++;
+    childBlock.style.top = `${positionY}px`;
+  } else if (positionX > 0) {
+    positionX--;
+    childBlock.style.left = `${positionX}px`;
+  } else if (positionY > 0) {
+    positionY--;
+    childBlock.style.top = `${positionY}px`;
+  } else {
+    return;
+  }
+  setTimeout(move, 1);
+};
 
-    requestAnimationFrame(function () {
-      moveChildBlock(targetPosition, currentPosition);
-    });
+move();
+
+//STOPWATCH
+
+let seconds = 0;
+let intervalId = null;
+
+const secondsElement = document.getElementById("secondsS");
+const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
+
+function updateTimer() {
+  seconds++;
+  secondsElement.textContent = seconds;
+}
+
+function startTimer() {
+  if (intervalId === null) {
+    intervalId = setInterval(updateTimer, 1000);
   }
 }
-moveChildBlock(450, 0);
+
+function stopTimer() {
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+}
+
+startButton.addEventListener("click", startTimer);
+stopButton.addEventListener("click", stopTimer);
