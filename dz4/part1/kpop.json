@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Jisoo",
+    "birthday": "January 03, 1995",
+    "zodiac": "Capricorn",
+    "album": "ME",
+    "group": "BLACKPINK",
+    "image": "images/jisooforelle.webp"
+  },
+  {
+    "name": "Taehyung",
+    "birthday": "December 30, 1995",
+    "zodiac": "Capricorn",
+    "album": "LayoVer",
+    "group": "BTS",
+    "image": "images/taehyungcartier.webp"
+  },
+  {
+    "name": "BIBI",
+    "birthday": "September 27, 1998",
+    "zodiac": "Libra",
+    "album": "Lowlife Princess: Noir",
+    "group": "solo artist",
+    "image": "images/bibiven.jpg"
+  },
+  {
+    "name": "Yeonjun",
+    "birthday": "September 13, 1999",
+    "zodiac": "Virgo",
+    "album": "The chaos",
+    "group": "Tomorrow X Together",
+    "image": "images/yeonjuniiiiejpeg.jpeg"
+  },
+  {
+    "name": "Nayeon",
+    "birthday": "September 22, 1995",
+    "zodiac": "Virgo",
+    "album": "Im Nayeon",
+    "group": "Twice",
+    "image": "images/Nayeon_Ready_To_Be_Profile.webp"
+  },
+  {
+    "name": "Baekhyun",
+    "birthday": "May 6, 1992",
+    "zodiac": "Taurus",
+    "album": "Bambi",
+    "group": "EXO",
+    "image": "images/baek.jpeg"
+  }
+]
