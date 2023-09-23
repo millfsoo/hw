@@ -64,3 +64,49 @@ parentTabs.onclick = (event) => {
     });
   }
 };
+
+//Converter
+
+const som = document.querySelector("#som");
+const usd = document.querySelector("#usd");
+const won = document.querySelector("#won");
+
+// som.addEventListener(`input`, () => {
+//   const request = new XMLHttpRequest();
+//   request.open("GET", "../data/converter.json");
+//   request.setRequestHeader("Content-type", "application/json");
+//   request.send();
+
+//   request.addEventListener(`load`, () => {
+//     const response = JSON.parse(request.response);
+//     usd.value = (som.value / response.usd).toFixed(2);
+//   });
+// });
+
+const converter = (element, target1, currency) => {
+  element.oninput = () => {
+    const request = new XMLHttpRequest();
+    request.open("GET", "../data/converter.json");
+    request.setRequestHeader("Content-type", "application/json");
+    request.send();
+
+    request.onload = () => {
+      const response = JSON.parse(request.response);
+      if (currency === "som") {
+        target1.value = (element.value / response.usd).toFixed(2);
+        won.value = (element.value / response.won).toFixed(2);
+      } else if (currency === "usd") {
+        target1.value = (element.value * response.usd).toFixed(2);
+        won.value = ((element.value * response.usd) / response.won).toFixed(2);
+      } else if (currency === "won") {
+        target1.value = (element.value * response.won).toFixed(2);
+        usd.value = (element.value / response.usd).toFixed(2);
+      }
+      element.value === "" && (target1.value = "");
+    };
+  };
+};
+
+converter(som, usd, "som");
+converter(usd, som, "usd");
+converter(won, som, "won");
