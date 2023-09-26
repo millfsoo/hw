@@ -110,3 +110,39 @@ const converter = (element, target1, currency) => {
 converter(som, usd, "som");
 converter(usd, som, "usd");
 converter(won, som, "won");
+
+//CARD SWITCHER
+
+//CARD SWITCHER
+
+const card = document.querySelector(".card");
+const btnNext = document.querySelector("#btn-next");
+const btnPrev = document.querySelector("#btn-prev");
+let count = 1;
+
+function fetchCard(cardNumber) {
+  fetch(`https://jsonplaceholder.typicode.com/todos/${cardNumber}`)
+    .then((response) => response.json())
+    .then((data) => {
+      card.innerHTML = `
+      <p>${data.title}</p>
+      <p style="color: ${data.completed ? "green" : "red"}">${
+        data.completed
+      }</p>
+      <span>${data.id}</span>
+      `;
+    });
+}
+
+function handleButtonClick(isNext) {
+  if (isNext) {
+    count = count === 200 ? 1 : count + 1;
+  } else {
+    count = count === 1 ? 200 : count - 1;
+  }
+  fetchCard(count);
+}
+fetchCard(count);
+
+btnNext.onclick = () => handleButtonClick(true);
+btnPrev.onclick = () => handleButtonClick(false);
