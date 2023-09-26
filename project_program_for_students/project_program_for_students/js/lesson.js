@@ -113,8 +113,6 @@ converter(won, som, "won");
 
 //CARD SWITCHER
 
-//CARD SWITCHER
-
 const card = document.querySelector(".card");
 const btnNext = document.querySelector("#btn-next");
 const btnPrev = document.querySelector("#btn-prev");
